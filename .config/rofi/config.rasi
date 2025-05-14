@@ -1,0 +1,256 @@
+/*
+#  ____        __ _  
+# |  _ \ ___  / _(_) 
+# | |_) / _ \| |_| | 
+# |  _ < (_) |  _| | 
+# |_| \_\___/|_| |_| 
+#                    
+# by Stephan Raabe (2023) 
+# ----------------------------------------------------- 
+*/
+
+/* ---- Configuration ---- */
+configuration {
+    modi:                       "drun,filebrowser,window,run";
+    font:                       "Fira Sans 11";
+    show-icons:                 true;
+    icon-theme:                 "kora";
+    display-drun:                " ";
+    display-run:                 "   ";
+    display-filebrowser:         "  ";
+    display-window:              "  ";
+	drun-display-format:        "{name}";
+    hover-select:               false;
+    scroll-method:              1;
+    me-select-entry:            "";
+    me-accept-entry:            "MousePrimary";
+    window-format:              "{w} · {c} · {t}";
+    
+}
+
+/* ---- Load font ---- */
+@import "~/.config/ml4w/settings/rofi-font.rasi"
+
+/* ---- Load colors ---- */
+@theme "~/.config/rofi/colors.rasi"
+
+/* ---- Load wallpaper ---- */
+@import "~/.config/ml4w/cache/current_wallpaper.rasi"
+
+/* ---- Load border width ---- */
+@import "~/.config/ml4w/settings/rofi-border.rasi"
+
+/* ---- Load border radius ---- */
+@import "~/.config/ml4w/settings/rofi-border-radius.rasi"
+
+/* ---- Map colors ---- */
+* {
+    color11: @primary;
+    color5: @on-primary-fixed;
+    foreground: @on-surface;
+    blue: #248297;
+    darkblue: #1b2632;
+    darkgray: #2b2c36;
+    gray: #ADAEB4;
+    dark: #22232e;
+    darker: #1A1B26;
+}
+
+// Main //
+window {
+    height:                      34em;
+    width:                       45em;
+    transparency:                "real";
+    fullscreen:                  false;
+    enabled:                     true;
+    cursor:                      "default";
+    spacing:                     0em;
+    padding:                     0em;
+    border:                      @border-width;
+    border-color:                @blue;
+    border-radius:               @border-radius;
+    background-color:            @darker;
+}
+
+mainbox {
+    enabled:                     true;
+    orientation:                 horizontal;
+    spacing:                     0em;
+    padding:                     0em;
+    children:                    [ "wallpaper" , "workarea" ];
+}
+
+workarea {
+    enabled:                     true;
+    children:                    [ "inputbar" , "mode-switcher" , "listbox" ];
+    background-color:            @darker;
+}
+
+wallpaper {
+    enabled:                     true;
+    background-image:            @current-image;
+}
+
+// Inputs //
+inputbar {
+    enabled:                     true;
+    background-color:            @darker;
+    children:                    [ "textbox-prompt-colon", "entry" ];
+}
+
+textbox-prompt-colon {
+    enabled:                     true;
+    expand:                      false;
+    str:                         "";
+    padding:                     1.5em 0.1em 0em 1em;
+    text-color:                  @gray;
+    background-color:            @darker;
+}
+
+entry {
+    enabled:                     true;
+    spacing:                     5em;
+    padding:                     0.5em 0.1em 0.5em 1em;
+    margin:                      1em 1em 0.6em 1em;
+    background-color:            @dark;
+    border-radius:               1em;
+    text-color:                  @gray;
+    cursor:                      text;
+    placeholder:                 "Search";
+    placeholder-color:           inherit;
+}
+
+// Lists //
+listbox {
+    padding:                     0em;
+    spacing:                     0em;
+    orientation:                 horizontal;
+    children:                    [ "listview" ];
+    background-color:            @dark;
+}
+
+listview {
+    padding:                     1em;
+    enabled:                     true;
+    columns:                     1;
+    cycle:                       false;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    cursor:                      "default";
+    background-color:            transparent;
+}
+
+
+// Modes //
+mode-switcher {
+    orientation:                 horizontal;
+    enabled:                     true;
+    background-color:            @darker;
+    padding:                     0em 0em 0.3em 0em;
+}
+
+button {
+    cursor:                      pointer;
+    border-radius:               0.6em;
+    padding:                     0.4em;
+    margin:                      0em 0.5em 0.3em 0.5em;
+    background-color:            transparent;
+    text-color:                  @gray;
+}
+
+button selected {
+    background-color:            @darkblue;
+    text-color:                  @blue;
+}
+
+
+// Elements //
+element {
+    enabled:                     true;
+    padding:                     0.6em;
+    cursor:                      pointer;
+    background-color:            transparent;
+    text-color:                  @gray;
+}
+
+element selected.normal {
+    background-color:            @darkgray;
+    text-color:                  @gray;
+    border-radius:               0.7em;
+}
+
+element normal.normal {
+    background-color:            inherit;
+    text-color:                  @gray;
+}
+
+element normal.urgent {
+    background-color:            inherit;
+    text-color:                  @gray;
+}
+
+element normal.active {
+    background-color:            inherit;
+    text-color:                  @gray;
+}
+
+element selected.urgent {
+    background-color:            inherit;
+    text-color:                  @gray;
+}
+
+element selected.active {
+    background-color:            inherit;
+    text-color:                  @gray;
+}
+
+element alternate.normal {
+    background-color:            inherit;
+    text-color:                  @gray;
+}
+
+element alternate.urgent {
+    background-color:            inherit;
+    text-color:                  @gray;
+}
+
+element alternate.active {
+    background-color:            inherit;
+    text-color:                  @gray;
+}
+
+element-icon {
+    size:                        1.4em;
+    cursor:                      inherit;
+    background-color:            transparent;
+    text-color:                  inherit;
+    border-radius:               0em;
+}
+
+element-text {
+    padding:                     0em 0em 0em 1.3em;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+    cursor:                      inherit;
+    background-color:            transparent;
+    text-color:                  inherit;
+}
+
+// Error message //
+error-message {
+    text-color:                  @foreground;
+    background-color:            @background;
+    text-transform:              capitalize;
+    children:                    [ "textbox" ];
+}
+
+textbox {
+    text-color:                  inherit;
+    background-color:            inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}
