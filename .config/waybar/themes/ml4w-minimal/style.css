@@ -41,7 +41,7 @@
 }
 
 window#waybar {
-  background-color: rgba(30, 31, 41, 0.8);
+  background-color: rgba(30, 31, 41, 1);
   border-bottom: 0px solid #ffffff;
   /* color: #FFFFFF; */
   transition-property: background-color;
@@ -93,7 +93,7 @@ window#waybar {
 tooltip {
   background-color: @dark;
   color: @gray;
-  opacity: 0.9;
+  opacity: 1;
   font-size: 14px;
   font-weight: 400;
   padding: 40px;
@@ -294,8 +294,8 @@ window#waybar.empty #window {
 
 #custom-notification {
   margin: 0px 13px 0px 0px;
-  padding: 0px;
-  font-size: 15px;
+  padding: 2px;
+  font-size: 16px;
   color: @gray;
   opacity: 0.8;
 }

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Запускаем gnome-calendar в плавающем режиме с нужными параметрами
-hyprctl dispatch exec "[float; size 300 400; move 100%-335 142] gnome-calendar"
+hyprctl dispatch exec "[float; size 300 400; move 100%-w-47 154; animation gnomed] gnome-calendar"
 
 # Альтернативный вариант (если не работает через hyprctl):
 # gnome-calendar &

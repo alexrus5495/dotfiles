@@ -12,7 +12,7 @@
 /* ---- Configuration ---- */
 configuration {
     modi:                       "drun,filebrowser,window,run";
-    font:                       "Fira Sans 11";
+    font:                       "JetBrainsMono Nerd Font";
     show-icons:                 true;
     icon-theme:                 "kora";
     display-drun:                " ";
@@ -26,10 +26,16 @@ configuration {
     me-accept-entry:            "MousePrimary";
     window-format:              "{w} · {c} · {t}";
     
+    kb-mode-next:               "Control+Tab";      // Next mode
+    kb-mode-previous:           "Shift+Control+Tab"; // Prev mode
+    kb-custom-1:                "Control+1";        // drun 
+    kb-custom-2:                "Control+2";        // filebrowser
+    kb-custom-3:                "Control+3";        // window
+    kb-custom-4:                "Control+4";        // run 
 }
 
 /* ---- Load font ---- */
-@import "~/.config/ml4w/settings/rofi-font.rasi"
+/*@import "~/.config/ml4w/settings/rofi-font.rasi"*/
 
 /* ---- Load colors ---- */
 @theme "~/.config/rofi/colors.rasi"

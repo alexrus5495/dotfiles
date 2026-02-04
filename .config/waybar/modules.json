@@ -131,7 +131,7 @@
   // Telegram Launcher
   "custom/telegram": {
     "format": " ",
-    "on-click": "telegram-desktop",
+    "on-click": "Telegram",
     "tooltip-format": "Telegram"
   },
 
@@ -298,7 +298,7 @@
   },
 
   "hyprland/language": {
-    "format": "  {short}"
+    "format": "  {short}",
   },
 
   // Group Hardware

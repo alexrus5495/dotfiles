@@ -1,8 +1,8 @@
 [General]
 
 # Set to your screen resolution for better results
-width=1680
-height=1050
+width=1920
+height=1080
 
 backgroundColour="black"
 
@@ -13,7 +13,7 @@ wallpaper="backgrounds/CURRENTWALLPAPER"
 fitWallpaper=false
 
 # Main font
-fontFamily="Noto Sans"
+fontFamily="JetBrainsMono"
 
 # Set to a patched NerdFont if some icons don't display properly
 # or leave empty to use the main font family
@@ -57,7 +57,7 @@ clockFormat="HH:mm"
 dateFormat="dddd, dd MMMM"
 
 # Set this in case the date isn't in your system locale or you wish to use a different one
-locale=""
+locale="ru-RU"
 
 # Styles the clock font
 # Set to 'outline' for alternate style

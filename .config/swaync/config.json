@@ -28,6 +28,7 @@
     "hide-on-clear": false,
     "hide-on-action": true,
     "script-fail-notify": true,
+    "text-empty": "Нет уведомлений",
     "widgets": [
         "dnd",
         "buttons-grid",
@@ -39,16 +40,16 @@
     ],
     "widget-config": {
         "title": {
-            "text": "Notifications",
+            "text": "Уведомления",
             "clear-all-button": true,
-            "button-text": "Clear"
+            "button-text": "Очистить"
         },
         "dnd": {
-            "text": "Do Not Disturb"
+            "text": "Не беспокоить"
         },
         "label": {
             "max-lines": 1,
-            "text": "Notification"
+            "text": "Уведомление"
         },
         "mpris": {
             "image-size": 50,
