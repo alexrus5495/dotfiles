@@ -1,0 +1,28 @@
+# Вместо [[manager.prepend_keymap]] используйте:
+[[mgr.prepend_keymap]]
+on = [ "b", "d" ]
+run = "plugin fazif faziffd"
+desc = "Найти файлы (fd + fzf)"
+
+[[mgr.prepend_keymap]]
+on = [ "b", "a" ]
+run = "plugin fazif fazifrga"
+desc = "Найти в документах (rga + fzf)"
+
+[[mgr.prepend_keymap]]
+on = [ "b", "r" ]
+run = "plugin fazif fazifrg"
+desc = "Найти текст (rg + fzf)"
+
+# Ваши новые переходы
+[[mgr.prepend_keymap]]
+on = [ "g", "r" ]
+run = "cd ~/Repos"
+desc = "Repos"
+
+[[mgr.prepend_keymap]]
+on = [ "g", "D"]
+run = "cd ~/Storage/Downloads/"
+desc = "Downloads+"
+
+# ... остальные g-бинды

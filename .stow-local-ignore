@@ -1,0 +1,6 @@
+^_scripts
+^\.scripts
+^Makefile
+^README.*
+^\.git
+^\.stow-local-ignore

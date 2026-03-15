@@ -1,0 +1,87 @@
+/* Colors */
+
+@import "colors.css";
+@define-color background @background;
+@define-color groupbackground @background;
+@define-color buttoncolor @secondary;
+@define-color bordercolor @primary;
+@define-color fontcolor @on_surface;
+@define-color gray #ADAEB4;
+@define-color darkblue #1b2632;
+@define-color blue #248297;
+@define-color dark #22232e;
+@define-color darker #1A1B26;
+
+* {
+  font-family: "JetBrainsMono";
+}
+
+/* Control Center */
+
+.control-center {
+  border: 2px solid @blue;
+  border-radius: 0px;
+  padding: 10px;
+  background: @darker;
+}
+
+button {
+  border: 0px;
+  min-width: 35px;
+  background: @darkblue;
+  color: @blue;
+}
+
+.widget-title {
+  color: @gray;
+}
+
+.notification-group-header {
+  font-size: 11px;
+  color: @gray;
+}
+
+.widget-buttons-grid, .widget-volume {
+  background: @dark;
+}
+
+.widget-dnd {
+  color: @gray
+}
+
+.widget-dnd > switch {
+  color: @blue;
+  background: @darkblue
+}
+
+.widget-dnd > switch slider {
+  background: @blue;
+}
+
+.widget-dnd > switch:checked {
+  background: @darkblue;
+}
+
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  margin: 5px;
+}
+
+/* Notification */
+
+.notification {
+  background: @dark;
+  border: 1px solid @blue;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.notification-group {
+  color: @gray;
+}
+
+.notification-default-action:hover,
+.notification-action:hover {
+  color: #ffffff;
+  background: transparent;
+}
