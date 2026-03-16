@@ -20,7 +20,7 @@ configuration {
     display-filebrowser:         " ";
     display-window:              " ";
 	drun-display-format:        "{name}";
-    hover-select:               false;
+    hover-select:               true;
     scroll-method:              1;
     me-select-entry:            "";
     me-accept-entry:            "MousePrimary";

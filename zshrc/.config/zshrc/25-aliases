@@ -65,5 +65,5 @@ dumb(){
     mdcat "$HOME/.cheatsheets/$1.md"
 }
 
-alias yamusic='nohup google-chrome-stable --app=https://music.yandex.ru/ >/dev/null 2>&1 &'
-
+alias yt='nohup firefox --no-remote -P "headless" --new-window https://youtube.com >/dev/null 2>&1 &!; exit'
+alias ym='nohup firefox --no-remote -P "headless" --new-window https://music.yandex.ru >/dev/null 2>&1 &!; exit'

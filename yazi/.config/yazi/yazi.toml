@@ -1,10 +1,11 @@
 [opener]
-text = [
-    { run = 'nvim "$@"', block = true, desc = "Neovim" }
+edit = [{ run = 'nvim "$@"', block = true, desc = "Neovim" }]
+browser = [{ run = 'nxdg-open "$1"', orphan = true, desc = "Browser" }]
+
+[open]
+prepend_rules = [
+    { name = "*.md", use = ["edit", "browser"] },
+    { name = "*.txt", use = "edit" },
+    { name = "*.rs", use = "edit" },
+    { mime = "text/*", use = "edit" }
 ]
-
-md = [
-    { run = 'nvim "$@"', block = true, desc = "Neovim" }
-]
-
-
