@@ -65,5 +65,10 @@ dumb(){
     mdcat "$HOME/.cheatsheets/$1.md"
 }
 
-alias yt='nohup firefox --no-remote -P "headless" --new-window https://youtube.com >/dev/null 2>&1 &!; exit'
-alias ym='nohup firefox --no-remote -P "headless" --new-window https://music.yandex.ru >/dev/null 2>&1 &!; exit'
+# Chrome
+alias ya='nohup google-chrome-stable --app=https://music.yandex.ru/ >/dev/null 2>&1 &!; exit'
+alias yt='nohup google-chrome-stable --app=https://youtube.com/ >/dev/null 2>&1 &!; exit'
+
+# Firefox headless
+# alias yt='nohup firefox --no-remote -P "headless" --new-window https://youtube.com >/dev/null 2>&1 &!; exit'
+# alias ym='nohup firefox --no-remote -P "headless" --new-window https://music.yandex.ru >/dev/null 2>&1 &!; exit'

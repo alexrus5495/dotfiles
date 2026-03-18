@@ -60,7 +60,6 @@
         "hyprland/workspaces",
         "group/links",
         "group/quicklinks",
-        "custom/pomodoro",
         "custom/empty"
     ],
 
@@ -78,7 +77,6 @@
         "pulseaudio",
 //"backlight",
         "bluetooth",
-        "group/tools",
         "network",
         "group/hardware",
         //"battery", 
