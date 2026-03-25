@@ -58,13 +58,14 @@
     "modules-left": [
         "custom/appmenuicon",
         "hyprland/workspaces",
-        "hyprland/window",
-
-        "custom/empty",
-            ],
+        "group/links",
+        "group/quicklinks",
+        "custom/empty"
+    ],
 
     // Modules Center
     "modules-center": [
+        "hyprland/window",
         "custom/empty"
     ],
 
@@ -74,17 +75,14 @@
         "hyprland/language",
         "custom/updates",
         "pulseaudio",
-        //"backlight",
+//"backlight",
         "bluetooth",
         "network",
         "group/hardware",
-"clock",
-
-        "custom/weather",
-
         //"battery", 
         //"power-profiles-daemon",
-
+        "custom/weather",
+        "clock",
         "custom/notification",
         "custom/exit",
     ]

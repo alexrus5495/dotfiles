@@ -36,13 +36,13 @@
 * {
   font-family:
     "JetBrainsMono Nerd Font", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-  border-bottom: none;
+  border: none;
   border-radius: 0px;
 }
 
 window#waybar {
   background-color: rgba(30, 31, 41, 1);
-  border-bottom: 0px solid @blue;
+  border-bottom: 0px solid #ffffff;
   /* color: #FFFFFF; */
   transition-property: background-color;
   transition-duration: 0.5s;
@@ -109,6 +109,7 @@ tooltip label {
 
 #window {
   margin: 0px 15px 0px 0px;
+  border-radius: 12px;
   color: @blue;
   font-size: 14px;
   font-weight: 700;

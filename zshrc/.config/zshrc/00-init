@@ -11,4 +11,7 @@ export PATH=$PATH:~/.cargo/bin/
 export PATH="/usr/lib/ccache/bin/:$PATH"
 export PATH="$HOME/.tmuxifier/bin:$PATH"
 
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANROFFOPT="-c"
+
 eval "$(zoxide init zsh)"

@@ -283,6 +283,7 @@
     "on-click": "waybar-module-pomodoro toggle",
     "on-click-right": "waybar-module-pomodoro reset"
   },
+
   // Memory
   "memory": {
     "format": " {}%  ",

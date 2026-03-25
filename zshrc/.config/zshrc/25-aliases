@@ -60,15 +60,107 @@ alias setkb='setxkbmap de;echo "Keyboard set back to de."'
 
 
 # Customs
-
-dumb(){
-    mdcat "$HOME/.cheatsheets/$1.md"
-}
+alias shconf="nvim ~/.config/zshrc"
+alias icat="kitten icat"
+alias cpicker="nohup kcolorchooser >/dev/null 2>&1 &!; exit"
 
 # Chrome
-alias ya='nohup google-chrome-stable --app=https://music.yandex.ru/ >/dev/null 2>&1 &!; exit'
+alias ds='nohup google-chrome-stable --app=https://chat.deepseek.com/ >/dev/null 2>&1 &!; exit'
+# alias gpt='nohup google-chrome-stable --app=https://chatgpt.com/ >/dev/null 2>&1 &!; exit'
+alias ym='nohup google-chrome-stable --app=https://music.yandex.ru/ >/dev/null 2>&1 &!; exit'
 alias yt='nohup google-chrome-stable --app=https://youtube.com/ >/dev/null 2>&1 &!; exit'
 
-# Firefox headless
-# alias yt='nohup firefox --no-remote -P "headless" --new-window https://youtube.com >/dev/null 2>&1 &!; exit'
-# alias ym='nohup firefox --no-remote -P "headless" --new-window https://music.yandex.ru >/dev/null 2>&1 &!; exit'
+# Firefox
+alias gpt='nohup firefox --no-remote -P "headless" --new-window https://chatgpt.com/ >/dev/null 2>&1 &!; exit'
+
+
+
+
+
+
+# Function for quick cheatsheets reference.
+dum() {
+    local cheatsheet="$HOME/.cheatsheets/$1.md"
+    
+    # Если первый аргумент — это существующий файл шпаргалки
+    if [[ -f "$cheatsheet" ]]; then
+        if [[ -n "$2" ]]; then
+            glow "$cheatsheet" | grep --color=always -- "$2"
+        else 
+            glow -p "$cheatsheet"
+        fi
+    else
+        # Если шпаргалки нет — ищем в MDN
+        echo "💡 Шпаргалка '$1' не найдена, ищу в MDN..."
+        mdn "$@"
+    fi
+}
+
+MDN_ROOT="$HOME/Repos/MDN/content"  # fallback
+
+mdn() {
+    local query="$*"
+    local mdn_root="$MDN_ROOT"  # укажите правильный путь!
+    local index_file="$HOME/Repos/MDN/content/.content.txt"
+
+    if [[ -z "$query" ]]; then
+        echo "Использование: mdn <поисковый запрос>"
+        echo "Пример: mdn array map"
+        return 1
+    fi
+
+    # Ищем по индексу
+    local pattern=$(echo "$query" | tr ' ' '.*' | tr '[:upper:]' '[:lower:]')
+    
+    # Пробуем разные форматы индекса (с .md и без)
+    local matches=$(grep -i "$pattern" "$index_file" | head -20)
+    
+    # Если в индексе есть .md, убираем его для формирования пути
+    local clean_matches=$(echo "$matches" | sed 's|\.md$||' | sed 's|/index$||')
+    
+    local count=$(echo "$clean_matches" | wc -l)
+
+    if [[ "$count" -eq 0 ]]; then
+        echo "Ничего не найдено по запросу: $query"
+        return 1
+    elif [[ "$count" -eq 1 ]]; then
+        local article_path="$mdn_root/$(echo "$clean_matches" | head -1)"
+        echo "📖 Открываю: $article_path"
+        if [[ -f "$article_path/index.md" ]]; then
+            glow -p "$article_path/index.md"
+        else
+            echo "❌ Файл не найден: $article_path/index.md"
+            echo "Проверьте: существует ли папка?"
+            ls -la "$article_path" 2>/dev/null || echo "Папка не существует"
+        fi
+    else
+        echo "Найдено несколько статей:"
+        local i=1
+        while IFS= read -r line; do
+            # Очищаем путь для отображения
+            local clean_line=$(echo "$line" | sed 's|\.md$||' | sed 's|/index$||')
+            local short=$(echo "$clean_line" | sed 's|files/en-us/||' | awk -F'/' '{if (NF>=3) print $(NF-2)"/"$(NF-1)"/"$NF; else print $NF}')
+            printf "%2d. %s\n" $i "$short"
+            ((i++))
+        done <<< "$matches"
+        
+        echo -n "Выберите номер (или 0 для отмены): "
+        read -r choice
+        if [[ "$choice" =~ ^[0-9]+$ ]] && (( choice >= 1 && choice <= count )); then
+            local selected=$(echo "$clean_matches" | sed -n "${choice}p")
+            local article_path="$mdn_root/$selected"
+            echo "📖 Открываю: $article_path"
+            if [[ -f "$article_path/index.md" ]]; then
+                glow -p "$article_path/index.md"
+            else
+                echo "❌ Файл не найден: $article_path/index.md"
+                # Покажем, что есть в этой папке
+                ls -la "$article_path" 2>/dev/null || echo "Папка не существует"
+            fi
+        else
+            echo "Отменено"
+        fi
+    fi
+}
+
+
